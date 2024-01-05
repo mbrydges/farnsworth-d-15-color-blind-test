@@ -1,21 +1,27 @@
+'use client'
 import { initialData } from './initialTasks.js'
-import Column from './components/Column'
+import { DragDropContext, DropResult } from 'react-beautiful-dnd'
+import { Columns, Tasks } from '@/global.js'
+import List from './components/List'
 
 export default function Home() {
-  /*
-  return initialData.columnOrder.map((columnId) => (
-    <div
-      key={columnId}
-      style={{ backgroundColor: 'red', width: '10px', height: '10px' }}
-    ></div>
-  ))
-    */
+  const onDragEnd = (result: DropResult) => {}
 
-  return initialData.columnOrder.map((columnId) => {
-    const column = (initialData.columns as any)[columnId]
-    const tasks = column.taskIds.map(
-      (taskId: any) => (initialData.tasks as any)[taskId]
-    )
-    return <Column key={columnId} column={column} tasks={tasks} />
-  })
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      {initialData.columnOrder.map((columnId) => {
+        const column = (initialData.columns as Columns)[columnId]
+        console.log(column)
+
+        const tasks = column.taskIds.map(
+          (taskId: string) => (initialData.tasks as Tasks)[taskId]
+        )
+        console.log(column)
+
+        console.log(tasks)
+
+        return <List key={column.id} column={column} tasks={tasks} />
+      })}
+    </DragDropContext>
+  )
 }
