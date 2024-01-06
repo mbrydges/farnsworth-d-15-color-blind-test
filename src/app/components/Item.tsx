@@ -1,6 +1,5 @@
-import styled from 'styled-components'
-import { Draggable } from 'react-beautiful-dnd'
 import { Task } from '@/global'
+import dynamic from 'next/dynamic'
 
 interface Props {
   key: string
@@ -8,25 +7,34 @@ interface Props {
   index: number
 }
 
-const StyledItem = styled.div`
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  padding: 8px;
-  background-color: white;
-  margin-bottom: 8px;
-`
+const Draggable = dynamic(
+  () =>
+    import('react-beautiful-dnd').then((mod) => {
+      return mod.Draggable
+    }),
+  { ssr: false }
+)
 
 const Item = ({ task, index }: Props) => {
   return (
-    <Draggable draggableId={task.id} index={index}>
+    <Draggable draggableId={task.id} index={index} key={index}>
       {(provided) => (
-        <StyledItem
+        <div
+          className="item"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {task.content}
-        </StyledItem>
+          {/*task.content[0]*/}
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              borderRadius: '20%',
+              backgroundColor: task.color,
+            }}
+          ></div>
+        </div>
       )}
     </Draggable>
   )
