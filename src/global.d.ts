@@ -2,6 +2,7 @@
 export type Task = {
   id: string
   content: string
+  color: string
 }
 
 export type Tasks = {
