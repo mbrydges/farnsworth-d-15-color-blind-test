@@ -9,19 +9,24 @@ const shuffle = (array: string[]) => {
   return array.sort(() => Math.random() - 0.5)
 }
 
-const pin = (arrayStart: string[], arrayFinish: string[]) => {
+const initColor = (arrayStart: string[], arrayFinish: string[]) => {
   // Use shuffle here  eventually
-  arrayFinish.push(arrayStart[0])
+  shuffle((initialData.columns as Columns)['column-1'].taskIds)
+
+  const taskId = arrayStart[0]
+  const task = (initialData.tasks as Tasks)[taskId]
+  //arrayFinish.push(arrayStart[0])
   arrayStart.splice(0, 1)
+  return task.color
 }
 
 // Initialize second row
-pin(
+
+let color = initColor(
   (initialData.columns as Columns)['column-1'].taskIds,
   (initialData.columns as Columns)['column-2'].taskIds
 )
-
-shuffle((initialData.columns as Columns)['column-1'].taskIds)
+console.log('color', color)
 
 export default function Home() {
   const [state, setState] = useState(initialData)
@@ -98,7 +103,14 @@ export default function Home() {
             const tasks = column.taskIds.map(
               (taskId: string) => (state.tasks as Tasks)[taskId]
             )
-            return <List key={column.id} column={column} tasks={tasks} />
+            return (
+              <List
+                key={column.id}
+                column={column}
+                tasks={tasks}
+                color={color}
+              />
+            )
           })}
         </div>
       </DragDropContext>
