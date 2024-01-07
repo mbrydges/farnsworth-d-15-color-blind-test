@@ -31,7 +31,7 @@ const Item = ({ task, index }: Props) => {
               width: '100%',
               height: '100%',
               borderRadius: '8px',
-              border: '5px solid #363636',
+              border: '4px solid #363636',
               backgroundColor: task.color,
             }}
           ></div>
