@@ -1,7 +1,6 @@
 // global.d.ts
 export type Task = {
   id: string
-  content: string
   color: string
 }
 
@@ -11,7 +10,6 @@ export type Tasks = {
 
 export type Column = {
   id: string
-  title: string
   taskIds: string[]
 }
 
