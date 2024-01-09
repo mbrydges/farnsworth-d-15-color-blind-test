@@ -1,12 +1,12 @@
 'use client'
 import Item from './Item'
-import { Column, Task } from '@/global'
+import { Color, Row } from '@/global'
 import dynamic from 'next/dynamic'
 
 interface Props {
   color: string
-  column: Column
-  tasks: Task[]
+  colors: Color[]
+  row: Row
 }
 
 const Droppable = dynamic(
@@ -17,19 +17,19 @@ const Droppable = dynamic(
   { ssr: false }
 )
 
-const List = ({ column, tasks, color }: Props) => {
+const List = ({ row, colors, color }: Props) => {
   return (
-    <Droppable droppableId={column.id} direction="horizontal">
+    <Droppable droppableId={row.id} direction="horizontal">
       {(provided) => (
         <>
-          {column.id === 'column-1' ? (
+          {row.id === 'row-1' ? (
             <div
               className="list"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
-              {tasks.map((task: any, index: number) => (
-                <Item key={task.id} task={task} index={index} />
+              {colors.map((color: any, index: number) => (
+                <Item key={color.id} color={color} index={index} />
               ))}
               {provided.placeholder}
             </div>
@@ -51,8 +51,8 @@ const List = ({ column, tasks, color }: Props) => {
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
-                {tasks.map((task: any, index: number) => (
-                  <Item key={task.id} task={task} index={index} />
+                {colors.map((color: any, index: number) => (
+                  <Item key={color.id} color={color} index={index} />
                 ))}
                 {provided.placeholder}
               </div>

@@ -1,18 +1,18 @@
 // global.d.ts
-export type Task = {
+export type Color = {
   id: string
   color: string
 }
 
-export type Tasks = {
-  [key: string]: Task
+export type Colors = {
+  [key: string]: Color
 }
 
-export type Column = {
+export type Row = {
   id: string
-  taskIds: string[]
+  colorIds: string[]
 }
 
-export type Columns = {
-  [key: string]: Column
+export type Rows = {
+  [key: string]: Row
 }

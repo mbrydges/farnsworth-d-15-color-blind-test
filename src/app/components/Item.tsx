@@ -1,9 +1,9 @@
-import { Task } from '@/global'
+import { Color } from '@/global'
 import dynamic from 'next/dynamic'
 
 interface Props {
   key: string
-  task: Task
+  color: Color
   index: number
 }
 
@@ -15,9 +15,9 @@ const Draggable = dynamic(
   { ssr: false }
 )
 
-const Item = ({ task, index }: Props) => {
+const Item = ({ color, index }: Props) => {
   return (
-    <Draggable draggableId={task.id} index={index} key={index}>
+    <Draggable draggableId={color.id} index={index} key={index}>
       {(provided) => (
         <div
           className="item"
@@ -32,7 +32,7 @@ const Item = ({ task, index }: Props) => {
               height: '100%',
               borderRadius: '8px',
               border: '4px solid #363636',
-              backgroundColor: task.color,
+              backgroundColor: color.color,
             }}
           ></div>
         </div>
