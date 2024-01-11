@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   height: calc(100% - 160px);
   padding-left: 5vw;
   padding-right: 5vw;
@@ -64,22 +64,28 @@ body {
   width: 100%;
 }
 
-.button-check,
-.button-shuffle {
+.pushable {
+  background: hsl(25, 22%, 45%);
+  border-radius: 9px;
   border: none;
-  border-radius: 8px;
-  height: 40px;
-  width: fit-content;
-  background-color: #363636;
+  padding: 0;
   cursor: pointer;
+  outline-offset: 4px;
 }
 
-.button-shuffle {
-  width: 40px;
+.front {
+  display: block;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+
+  font-size: 0.85rem;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background: hsl(54, 39%, 46%);
+  color: #ffffff;
+  transform: translateY(-4px);
 }
 
-.button-check {
-  color: white;
-  font-weight: 700;
-  width: 80px;
+.pushable:active .front {
+  transform: translateY(-2px);
 }

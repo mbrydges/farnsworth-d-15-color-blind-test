@@ -31,7 +31,7 @@ const Item = ({ color, index }: Props) => {
               width: '100%',
               height: '100%',
               borderRadius: '8px',
-              border: '4px solid #363636',
+              border: '3px solid #363636',
               backgroundColor: color.color,
             }}
           ></div>
