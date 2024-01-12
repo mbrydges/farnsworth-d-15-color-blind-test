@@ -40,8 +40,9 @@ const List = ({ row, colors, color }: Props) => {
                   className="item"
                   style={{
                     borderRadius: '8px',
-                    border: '3px solid #363636',
                     backgroundColor: color,
+                    width: '100%',
+
                     cursor: 'not-allowed',
                   }}
                 ></div>

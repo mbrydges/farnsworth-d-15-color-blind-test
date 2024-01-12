@@ -2,45 +2,26 @@ html,
 body {
   margin: 0;
   padding: 0;
-  max-width: 100vw;
   height: 100vh;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  height: 80px;
-  width: 100%;
-  background-color: orange;
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 50px;
-  height: calc(100% - 160px);
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  height: 80px;
-  width: 100%;
-  background-color: rgb(91, 112, 182);
+  height: 100%;
 }
 
 .item {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5.25vw;
-  max-width: 60px;
-  height: 52px;
+  width: 6.25%;
+  max-width: 40px;
+  height: 60px;
+  cursor: grab;
 }
 
 .list {
@@ -48,12 +29,18 @@ body {
   align-items: center;
   height: 60px;
   width: 100%;
+  max-width: 640px;
   border-radius: 8px;
-  background-color: rgb(248, 248, 250);
+  background: hsl(0, 4%, 95%);
 }
 
 .list-container {
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px;
+  align-items: center;
+  justify-items: center;
+  width: 90vw;
   gap: 20px;
 }
 
@@ -66,26 +53,34 @@ body {
 
 .pushable {
   background: hsl(25, 22%, 45%);
-  border-radius: 9px;
+  border-radius: 10px;
   border: none;
   padding: 0;
   cursor: pointer;
-  outline-offset: 4px;
 }
 
 .front {
   display: block;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-
   font-size: 0.85rem;
   padding: 10px 10px;
   border-radius: 8px;
   background: hsl(54, 39%, 46%);
   color: #ffffff;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .pushable:active .front {
   transform: translateY(-2px);
+}
+
+.instructions {
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  max-width: 640px;
+  text-align: center;
+  color: #919090;
+  margin-bottom: 100px;
 }

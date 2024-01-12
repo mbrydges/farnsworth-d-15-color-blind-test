@@ -89,6 +89,9 @@ export default function Context() {
     <>
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="list-container">
+          <div className="instructions">
+            <p>Farnsworth D-15 Color Blind Test</p>
+          </div>
           {state.rowOrder.map((rowId) => {
             const row = (state.rows as Rows)[rowId]
             const colors = row.colorIds.map(
