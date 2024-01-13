@@ -1,4 +1,4 @@
-export default function Toolbar() {
+export default function Toolbar({ state: any }) {
   return (
     <div className="toolbar">
       <button className="pushable">
@@ -25,7 +25,7 @@ export default function Toolbar() {
           </svg>
         </span>
       </button>
-      <button className="pushable">
+      <button className="pushable" onClick={() => console.log(state)}>
         <span className="front">Check</span>
       </button>
     </div>
