@@ -1,13 +1,16 @@
-import Context from './components/Context'
-import Instructions from './components/Instructions'
-import Toolbar from './components/Toolbar'
+import { shuffle } from '@/lib/functions'
+import DndContext from './components/DndContext'
+import { Colors, Rows } from '@/lib/types'
+import { initialData } from './initialData'
 
-export default function Home() {
+export default function Page() {
   return (
-    <>
-      <div className="content">
-        <Context />
+    <section className="grid-layout">
+      <h4>Farnsworth D-15 Color Blind Test</h4>
+      <div className="dnd-container">
+        <DndContext />
       </div>
-    </>
+      <div className="footer-container"></div>
+    </section>
   )
 }

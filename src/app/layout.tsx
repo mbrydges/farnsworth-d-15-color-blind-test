@@ -5,8 +5,11 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Farnsworth D-15 | Color Blind Test',
+  title: 'Farnsworth D-15 - Color Blind Test',
   description: 'Farnsworth-D-15 color blind test',
+  icons: {
+    icon: 'eye.svg',
+  },
 }
 
 export default function RootLayout({

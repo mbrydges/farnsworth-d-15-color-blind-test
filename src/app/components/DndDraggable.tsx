@@ -1,7 +1,8 @@
-import { Color } from '@/global'
+'use client'
+import { Color } from '@/lib/types'
 import dynamic from 'next/dynamic'
 
-interface Props {
+type Props = {
   key: string
   color: Color
   index: number
@@ -15,17 +16,16 @@ const Draggable = dynamic(
   { ssr: false }
 )
 
-const Item = ({ color, index }: Props) => {
+export function DndDraggable({ color, index }: Props) {
   return (
     <Draggable draggableId={color.id} index={index} key={index}>
       {(provided) => (
         <div
-          className="item"
+          className="draggable"
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {/*task.content[0]*/}
           <div
             style={{
               width: '100%',
@@ -39,5 +39,3 @@ const Item = ({ color, index }: Props) => {
     </Draggable>
   )
 }
-
-export default Item

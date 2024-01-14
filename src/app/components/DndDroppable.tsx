@@ -1,9 +1,9 @@
 'use client'
-import Item from './Item'
-import { Color, Row } from '@/global'
+import { Color, Row } from '@/lib/types'
 import dynamic from 'next/dynamic'
+import { DndDraggable } from './DndDraggable'
 
-interface Props {
+type Props = {
   color: string
   colors: Color[]
   row: Row
@@ -17,43 +17,42 @@ const Droppable = dynamic(
   { ssr: false }
 )
 
-const List = ({ row, colors, color }: Props) => {
+export function DndDroppable({ row, colors, color }: Props) {
   return (
     <Droppable droppableId={row.id} direction="horizontal">
       {(provided) => (
         <>
           {row.id === 'row-1' ? (
             <div
-              className="list"
+              className="draggable-container"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
               {colors.map((color: any, index: number) => (
-                <Item key={color.id} color={color} index={index} />
+                <DndDraggable key={color.id} color={color} index={index} />
               ))}
               {provided.placeholder}
             </div>
           ) : (
-            <div className="list">
-              <div className="item">
+            <div className="draggable-container">
+              <div className="draggable">
                 <div
-                  className="item"
+                  className="draggable"
                   style={{
                     borderRadius: '8px',
                     backgroundColor: color,
                     width: '100%',
-
                     cursor: 'not-allowed',
                   }}
                 ></div>
               </div>
               <div
-                className="list"
+                className="draggable-container"
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
                 {colors.map((color: any, index: number) => (
-                  <Item key={color.id} color={color} index={index} />
+                  <DndDraggable key={color.id} color={color} index={index} />
                 ))}
                 {provided.placeholder}
               </div>
@@ -64,5 +63,3 @@ const List = ({ row, colors, color }: Props) => {
     </Droppable>
   )
 }
-
-export default List

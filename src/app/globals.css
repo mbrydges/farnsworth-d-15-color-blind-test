@@ -1,30 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
+.grid-layout {
+  display: grid;
+  grid-template-columns: minmax(247px, 640px);
+  grid-template-rows: 60px calc(100vh - 160px) 60px;
+  padding: 20px 14px 20px 14px;
+}
+
+h4 {
+  color: #b4b3b3;
+  text-align: center;
+  font-weight: 900;
+}
+
+.dnd-container {
+  display: grid;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
-  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 3px solid #eeeeee;
 }
 
-.item {
-  display: flex;
+.context-container {
+  display: grid;
+  gap: 30px;
+}
+
+.droppable-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60px;
   align-items: center;
-  justify-content: center;
-  width: 6.25%;
-  max-width: 40px;
-  height: 60px;
-  cursor: grab;
+  justify-items: center;
+  gap: 20px;
 }
 
-.list {
+.draggable-container {
   display: flex;
   align-items: center;
   height: 60px;
@@ -34,53 +56,44 @@ body {
   background: hsl(0, 4%, 95%);
 }
 
-.list-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 60px;
+.draggable {
+  display: flex;
   align-items: center;
-  justify-items: center;
-  width: 90vw;
-  gap: 20px;
+  justify-content: center;
+  width: 6.66%;
+  max-width: 40px;
+  height: 60px;
+  cursor: grab;
 }
 
 .toolbar {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  height: 40px;
 }
 
-.pushable {
-  background: hsl(25, 22%, 45%);
-  border-radius: 10px;
-  border: none;
-  padding: 0;
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.button-group button {
+  height: 45px;
+  padding-left: 11.5px;
+  padding-right: 11.5px;
+  border-radius: 8px;
+  border: 3px solid #eeeeee;
+  background-color: #ffffff;
+  color: #b4b3b3;
+  font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
 }
 
-.front {
-  display: block;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  padding: 10px 10px;
-  border-radius: 8px;
-  background: hsl(54, 39%, 46%);
-  color: #ffffff;
-  transform: translateY(-3px);
-}
-
-.pushable:active .front {
-  transform: translateY(-2px);
-}
-
-.instructions {
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  max-width: 640px;
-  text-align: center;
-  color: #919090;
-  margin-bottom: 100px;
+.error-text {
+  color: #f04747;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
