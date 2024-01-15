@@ -44,6 +44,7 @@ h4 {
   align-items: center;
   justify-items: center;
   gap: 20px;
+  height: 140px;
 }
 
 .draggable-container {
@@ -54,6 +55,16 @@ h4 {
   max-width: 640px;
   border-radius: 8px;
   background: hsl(0, 4%, 95%);
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .draggable {

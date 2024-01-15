@@ -1,7 +1,4 @@
-import { shuffle } from '@/lib/functions'
 import DndContext from './components/DndContext'
-import { Colors, Rows } from '@/lib/types'
-import { initialData } from './initialData'
 
 export default function Page() {
   return (

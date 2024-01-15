@@ -28,7 +28,10 @@ export default function Toolbar({ state }: Props) {
 
   return (
     <div className="toolbar">
+      <div className="error-text">Errors: {errors}</div>
+
       <div className="button-group">
+        <button onClick={() => results()}>RESULTS</button>
         <button onClick={() => window.location.reload()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,9 +54,7 @@ export default function Toolbar({ state }: Props) {
             />
           </svg>
         </button>
-        <button onClick={() => results()}>RESULTS</button>
       </div>
-      <div className="error-text">Errors: {errors}</div>
     </div>
   )
 }
